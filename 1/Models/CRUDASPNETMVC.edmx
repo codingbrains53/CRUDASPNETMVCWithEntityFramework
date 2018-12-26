@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Url" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'MyDatabase.dbo.CUSTOMER' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CUSTOMER">
+          <Property Name="CUST_NO" Type="float" />
+          <Property Name="SAN" Type="nvarchar" MaxLength="17" />
+          <Property Name="BILL_SAN" Type="nvarchar" MaxLength="17" />
+          <Property Name="CUST_TYPE" Type="nvarchar" MaxLength="10" />
+          <Property Name="PREFIX" Type="nvarchar" MaxLength="10" />
+          <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="15" />
+          <Property Name="LAST_NAME" Type="nvarchar" MaxLength="20" />
+          <Property Name="SUFFIX" Type="nvarchar" MaxLength="5" />
+          <Property Name="CO_CARE_OF" Type="nvarchar" MaxLength="30" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="30" />
+          <Property Name="ADDRESS2" Type="nvarchar" MaxLength="30" />
+          <Property Name="CITY" Type="nvarchar" MaxLength="18" />
+          <Property Name="STATE" Type="nvarchar" MaxLength="2" />
+          <Property Name="ZIP" Type="nvarchar" MaxLength="5" />
+          <Property Name="ZIP_PLUS" Type="nvarchar" MaxLength="4" />
+          <Property Name="COUNTRY" Type="nvarchar" MaxLength="30" />
+          <Property Name="HOME_PHONE" Type="nvarchar" MaxLength="12" />
+          <Property Name="WORK_PHONE" Type="nvarchar" MaxLength="12" />
+          <Property Name="ATTN_TO" Type="nvarchar" MaxLength="30" />
+          <Property Name="SLSMAN" Type="nvarchar" MaxLength="7" />
+          <Property Name="SH_PREFIX" Type="nvarchar" MaxLength="10" />
+          <Property Name="SH_F_NAME" Type="nvarchar" MaxLength="15" />
+          <Property Name="SH_L_NAME" Type="nvarchar" MaxLength="20" />
+          <Property Name="SH_SUFFIX" Type="nvarchar" MaxLength="5" />
+          <Property Name="SH_CO_CARE" Type="nvarchar" MaxLength="30" />
+          <Property Name="SH_ADDRESS" Type="nvarchar" MaxLength="30" />
+          <Property Name="SH_ADDR2" Type="nvarchar" MaxLength="30" />
+          <Property Name="SH_CITY" Type="nvarchar" MaxLength="18" />
+          <Property Name="SH_STATE" Type="nvarchar" MaxLength="2" />
+          <Property Name="SH_ZIP" Type="nvarchar" MaxLength="5" />
+          <Property Name="SH_ZIP_PLS" Type="nvarchar" MaxLength="4" />
+          <Property Name="SH_COUNTRY" Type="nvarchar" MaxLength="30" />
+          <Property Name="SH_ATTN_TO" Type="nvarchar" MaxLength="30" />
+          <Property Name="SHIP_WPHON" Type="nvarchar" MaxLength="12" />
+          <Property Name="SHIP_HPHON" Type="nvarchar" MaxLength="12" />
+          <Property Name="MTDSALES" Type="float" />
+          <Property Name="YTDSALES" Type="float" />
+          <Property Name="TDSALES" Type="float" />
+          <Property Name="DATELS" Type="datetime" />
+          <Property Name="CURRENT" Type="float" />
+          <Property Name="PD1_30" Type="float" />
+          <Property Name="PD31_60" Type="float" />
+          <Property Name="PD61_90" Type="float" />
+          <Property Name="PD91_120" Type="float" />
+          <Property Name="PD121_999" Type="float" />
+          <Property Name="PD45_999" Type="float" />
+          <Property Name="SOC_SEC" Type="nvarchar" MaxLength="11" />
+          <Property Name="ZIP_LNAME" Type="nvarchar" MaxLength="40" />
+          <Property Name="LNAME_KEY" Type="nvarchar" MaxLength="35" />
+          <Property Name="SOURCE_COD" Type="nvarchar" MaxLength="7" />
+          <Property Name="CHARGE_TYP" Type="nvarchar" MaxLength="1" />
+          <Property Name="CHARGE_NO" Type="nvarchar" MaxLength="16" />
+          <Property Name="EXPIR_MMYY" Type="nvarchar" MaxLength="5" />
+          <Property Name="PO_NUMBER" Type="nvarchar" MaxLength="25" />
+          <Property Name="COMM_RATE" Type="float" />
+          <Property Name="SHIP_MTHD" Type="nvarchar" MaxLength="1" />
+          <Property Name="MAIL_TEL" Type="nvarchar" MaxLength="1" />
+          <Property Name="TAX_RATE" Type="float" />
+          <Property Name="H_CR_HOLD" Type="nvarchar" MaxLength="1" />
+          <Property Name="MATCH_CODE" Type="nvarchar" MaxLength="21" />
+          <Property Name="C_CONT_CUS" Type="nvarchar" MaxLength="1" />
+          <Property Name="NEXT_SHIP" Type="datetime" />
+          <Property Name="START_DATE" Type="datetime" />
+          <Property Name="SOC_CODE" Type="nvarchar" MaxLength="1" />
+          <Property Name="SHIP_NO" Type="float" />
+          <Property Name="DISCNT_PC" Type="float" />
+          <Property Name="TERMS" Type="float" />
+          <Property Name="ALLOW_BO" Type="nvarchar" MaxLength="1" />
+          <Property Name="FULLCRTN" Type="nvarchar" MaxLength="1" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="1" />
+        </EntityType>-->
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Empolyee1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="150" />
+          <Property Name="PinCode" Type="int" />
+          <Property Name="CreatedAt" Type="date" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDatabase.dbo.tblEmployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="Department" Type="varchar" MaxLength="20" />
+          <Property Name="Gender" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <Association Name="FK_dbo_Posts_dbo_Blogs_BlogId">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="BlogId" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddNewEmpDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteEmpById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spAddEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="Gender" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spDeleteEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetAllEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spUpdateEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="Gender" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateEmpDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="MyDatabaseModelStoreContainer">
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empolyee1" EntityType="Self.Empolyee1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblEmployee].[EmployeeId] AS [EmployeeId], 
+    [tblEmployee].[Name] AS [Name], 
+    [tblEmployee].[City] AS [City], 
+    [tblEmployee].[Department] AS [Department], 
+    [tblEmployee].[Gender] AS [Gender]
+    FROM [dbo].[tblEmployee] AS [tblEmployee]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_dbo_Posts_dbo_Blogs_BlogId" Association="Self.FK_dbo_Posts_dbo_Blogs_BlogId">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Blogs" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Empolyee1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PinCode" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Posts" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Posts_dbo_Blogs_BlogId">
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="BlogId" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyDatabaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Empolyee1" EntityType="Self.Empolyee1" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <AssociationSet Name="FK_dbo_Posts_dbo_Blogs_BlogId" Association="Self.FK_dbo_Posts_dbo_Blogs_BlogId">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <FunctionImport Name="AddNewEmpDetails">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteEmpById">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetEmployees" ReturnType="Collection(MyDatabaseModel.GetEmployees_Result)" />
+          <FunctionImport Name="spAddEmployee">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteEmployee">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAllEmployees" ReturnType="Collection(MyDatabaseModel.spGetAllEmployees_Result)" />
+          <FunctionImport Name="spUpdateEmployee">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateEmpDetails">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetEmployees_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spGetAllEmployees_Result">
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Department" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="6" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyDatabaseModelStoreContainer" CdmEntityContainer="MyDatabaseEntities1">
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Blog">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empolyee1">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Empolyee1">
+              <MappingFragment StoreEntitySet="Empolyee1">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="MyDatabaseModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddNewEmpDetails" FunctionName="MyDatabaseModel.Store.AddNewEmpDetails" />
+          <FunctionImportMapping FunctionImportName="DeleteEmpById" FunctionName="MyDatabaseModel.Store.DeleteEmpById" />
+          <FunctionImportMapping FunctionImportName="GetEmployees" FunctionName="MyDatabaseModel.Store.GetEmployees">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDatabaseModel.GetEmployees_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAddEmployee" FunctionName="MyDatabaseModel.Store.spAddEmployee" />
+          <FunctionImportMapping FunctionImportName="spDeleteEmployee" FunctionName="MyDatabaseModel.Store.spDeleteEmployee" />
+          <FunctionImportMapping FunctionImportName="spGetAllEmployees" FunctionName="MyDatabaseModel.Store.spGetAllEmployees">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDatabaseModel.spGetAllEmployees_Result">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdateEmployee" FunctionName="MyDatabaseModel.Store.spUpdateEmployee" />
+          <FunctionImportMapping FunctionImportName="UpdateEmpDetails" FunctionName="MyDatabaseModel.Store.UpdateEmpDetails" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
