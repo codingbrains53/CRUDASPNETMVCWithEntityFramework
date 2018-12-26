@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Blogs" ToRole="Posts" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Empolyee1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PinCode" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BlogId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Blog" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Posts" ToRole="Blogs" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Posts_dbo_Blogs_BlogId">
+    <End Role="Blogs" Type="Self.Blog" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogs">
+        <PropertyRef Name="BlogId" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="BlogId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyDatabaseEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Blogs" EntityType="Self.Blog" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Empolyee1" EntityType="Self.Empolyee1" />
+    <EntitySet Name="Posts" EntityType="Self.Post" />
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <AssociationSet Name="FK_dbo_Posts_dbo_Blogs_BlogId" Association="Self.FK_dbo_Posts_dbo_Blogs_BlogId">
+      <End Role="Blogs" EntitySet="Blogs" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+    <FunctionImport Name="AddNewEmpDetails">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteEmpById">
+      <Parameter Name="EmpId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmployees" ReturnType="Collection(MyDatabaseModel.GetEmployees_Result)" />
+    <FunctionImport Name="spAddEmployee">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteEmployee">
+      <Parameter Name="EmpId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllEmployees" ReturnType="Collection(MyDatabaseModel.spGetAllEmployees_Result)" />
+    <FunctionImport Name="spUpdateEmployee">
+      <Parameter Name="EmpId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateEmpDetails">
+      <Parameter Name="EmpId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetEmployees_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetAllEmployees_Result">
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="6" />
+  </ComplexType>
+</Schema>
